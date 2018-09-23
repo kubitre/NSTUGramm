@@ -1,0 +1,7 @@
+# frontend
+**/node_modules/
+package-lock.json
+
+# backend
+**/bin/
+**/obj/
