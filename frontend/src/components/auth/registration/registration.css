@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css?family=Comfortaa:300,400,700|Pacifico&subset=cyrillic");
+.inputs {
+  border: 0;
+  padding: 4px 0;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
+}
+.inputs .effect ~ .focus-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #3399FF;
+  transition: 0.4s;
+}
+.inputs .effect:focus ~ .focus-border,
+.inputs .has-content.effect ~ .focus-border {
+  width: 100%;
+  transition: 0.4s;
+}
+.inputs .effect ~ label {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 9px;
+  color: #aaa;
+  transition: 0.3s;
+  z-index: -1;
+  letter-spacing: 0.5px;
+}
+.inputs .effect:focus ~ label, .inputs .has-content.effect ~ label {
+  top: -16px;
+  font-size: 12px;
+  color: #3399FF;
+  transition: 0.3s;
+}
+
+.registration_container {
+  background-color: #eee;
+  width: 100%;
+  height: 100%;
+}
+.registration_container .registration_form {
+  padding: 90px 75px;
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 1px;
+  margin-left: 38%;
+  margin-top: 8%;
+  position: fixed;
+  display: block;
+}
+.registration_container .registration_form input[type=text] {
+  font: 15px/24px "Comfortaa";
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+}
+.registration_container .registration_form .label_image {
+  padding: 5px;
+  margin-bottom: 20px;
+}
+.registration_container .registration_form .label_image img {
+  width: 100px;
+  height: 100px;
+}
+.registration_container .registration_form .login_input {
+  padding-bottom: 5px;
+}
+.registration_container .registration_form .email_input {
+  padding-bottom: 5px;
+}
+.registration_container .registration_form .password_input {
+  padding-bottom: 5px;
+}
+.registration_container .registration_form .submit {
+  padding-top: 15px;
+}
+
+.font_form {
+  font-family: "Comfortaa";
+  font-size: 1.1em;
+  font-weight: 400;
+}
+
+/*# sourceMappingURL=registration.css.map */

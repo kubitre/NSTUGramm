@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css?family=Cormorant:500&subset=cyrillic");
+@import url("https://fonts.googleapis.com/css?family=Philosopher");
+@import url("https://fonts.googleapis.com/css?family=Pacifico&subset=cyrillic");
+h2 {
+  font-family: "Cormorant", serif;
+}
+
+.panel_container__footer {
+  background-color: #fefefe;
+  padding-top: 50px;
+  padding-bottom: 25px;
+  margin-top: 15px;
+  height: 200px;
+}
+.panel_container__footer .userInfo {
+  display: flex;
+  cursor: pointer;
+  font-family: "Philosopher", sans-serif;
+  font-size: 2.1em;
+  border-bottom: 1px solid #e6e6e6;
+  transition: background-color 1s linear;
+  transition: padding 0.1s linear;
+}
+.panel_container__footer .userInfo .userImage {
+  margin-right: 20px;
+}
+.panel_container__footer .userInfo .userImage img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #000;
+}
+.panel_container__footer .userInfo:hover {
+  padding: 4px;
+  background-color: rgba(0, 0, 0, 0.01);
+}
+.panel_container__footer .about__footer {
+  opacity: 0.4;
+}
+.panel_container__footer .about__footer .CompanyName {
+  font-size: 1.5em;
+  font-family: "Pacifico", cursive;
+}
+
+/*# sourceMappingURL=footer.css.map */

@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico&subset=cyrillic');
+
+.user_profile_image__navbar{
+  display: flex;
+  img{
+    flex-grow: 1;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+}
+
+.left_side__navbar{
+  display: flex;
+  flex-grow: 3;
+}
+
+.container__navbar{
+  display: flex;
+  padding: 50px 100px;
+  margin-bottom: 100px;
+  border-bottom: 1px solid #e6e6e6;
+  background-color: #fff;
+  z-index: 2;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.smallMenu{
+  margin-left: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  opacity: 0.9;
+
+}
+
+.separator__navbar .name_project__navbar{
+  span{
+    margin-bottom: 15px;
+  }
+  opacity: 1;
+  transition: opacity 0.5s linear;
+}
+
+.text_size_big{
+  font-family: 'Pacifico', cursive;
+  font-size: 2em;
+}
+
+.logotype__navbar{
+  img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition-property: width, height, border-radius;
+    transition: 0.4s linear;
+  }
+}
+.menu_small_without_text{
+  transition: opacity 0.5s linear;
+  opacity: 0;
+}
+.menusmall_logotype{
+  img{
+    width: 45px;
+    height: 45px;
+    border-radius: 40%;
+    margin-left: 150px;
+  }
+}
+
+.user__navbar{
+  float: right;
+}

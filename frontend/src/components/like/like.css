@@ -1,0 +1,63 @@
+.toggle-icon {
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  position: relative;
+  color: gray;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  content: inherit;
+}
+.toggle-icon button {
+  width: 15px;
+  height: 15px;
+}
+.toggle-icon:before, .toggle-icon:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease-out;
+  content: url(./like.png);
+}
+.toggle-icon:hover:before {
+  transform: scale(1.2);
+}
+.toggle-icon:active:before {
+  transition: none;
+  transform: scale(1);
+}
+.toggle-icon:after {
+  opacity: 0;
+}
+.toggle-icon.-checked {
+  color: #A12C2C;
+}
+.toggle-icon.-checked:before {
+  content: url(./like-color.png);
+}
+.toggle-icon.-checked:after {
+  content: url(./like-color.png);
+  animation: likeFly 0.6s ease-in;
+}
+
+@keyframes heartbeat {
+  from {
+    opacity: 1;
+  }
+  to {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+@keyframes likeFly {
+  from {
+    opacity: 1;
+  }
+  to {
+    transform: scale(3) rotate(45deg) translateY(-90px);
+    opacity: 0;
+  }
+}
+
+/*# sourceMappingURL=like.css.map */

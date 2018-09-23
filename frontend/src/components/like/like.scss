@@ -1,0 +1,79 @@
+$icon-fill:#A12C2C !default;
+$icon-fill-color:#A12C2C !default;
+
+$icon-empty: url(./like.png);
+$icon-color: url(./like-color.png);
+
+$icon-size: 30px;
+
+.toggle-icon{
+  width:$icon-size;
+  height:$icon-size;
+  font-size: $icon-size;
+  position: relative;//need for icons stack
+  color:gray;//default color
+  cursor:pointer;
+  border:none;//clear border
+  outline: none;
+  background-color:transparent;//clear background
+  content:inherit;
+  &:before,&:after{
+    position:absolute;
+    border:none;//clear border
+    outline: none;
+    top:0;left:0;//stack icons
+    transition:all .3s ease-out;
+    content: $icon-empty;//default icon
+  }
+  &:hover:before{
+    transform:scale(1.2);//increase size on hover
+    border:none;//clear border
+    outline: none;
+  }
+  &:active:before{
+    transition:none;//clear all transitions
+    transform:scale(1);//restore original size
+    border:none;//clear border
+    outline: none;
+  }
+
+  &:after{//need only for animation
+     opacity:0;//hide
+  }
+
+  // jQuery toggle class added =>
+  &.-checked{
+    color:$icon-fill-color;
+    &:before{
+      content:$icon-color;
+    }
+    &:after{
+      content:$icon-color;
+      animation:likeFly .6s ease-in;
+    }
+  }
+}
+
+// animation
+@keyframes heartbeat{
+  from{
+    opacity:1; //show
+  }
+  to{
+    // increase size and smooth hide
+    transform:scale(3);
+    opacity:0;
+  }
+}
+
+// animation
+@keyframes likeFly{
+  from{
+    opacity:1; //show
+  }
+  to{
+    // increase size and smooth hide
+    transform:scale(3) rotate(45deg) translateY(-90px);
+    opacity:0;
+  }
+}

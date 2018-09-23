@@ -1,0 +1,30 @@
+$comment_icon: url(../../../src/img/icons/comment.png);
+
+$icon-size: 25px;
+
+.comment_button_container{
+  width: $icon-size;
+  height: $icon-size;
+  .comment_button{
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    border: none;
+    border:none;//clear border
+    outline: none;
+    background-color:transparent;//clear background
+    content:inherit;
+
+    button{
+      content: $comment_icon;
+      &:before,&:after{
+        position:absolute;
+        border:none;//clear border
+        outline: none;
+        top:0;left:0;//stack icons
+        transition:all .3s ease-out;
+        content: $comment_icon;//default icon
+      }
+    }
+  }
+}

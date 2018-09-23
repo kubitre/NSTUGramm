@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500&subset=cyrillic");
+.count_block_ ~ .count_block_ {
+  margin-right: 100px;
+}
+
+.count_block_ {
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.3em;
+  font-weight: 500;
+}
+.count_block_ .text_block {
+  flex-grow: 1;
+  font-size: 1.1em;
+  font-weight: 400;
+}
+.count_block_ .count_info {
+  font-size: 1.1em;
+  flex-grow: 1;
+}
+
+/*# sourceMappingURL=countBlock.css.map */

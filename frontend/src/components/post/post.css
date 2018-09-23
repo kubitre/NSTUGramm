@@ -1,0 +1,87 @@
+.post {
+  padding-top: 50px;
+  margin-top: 15px;
+  background-color: #fff;
+}
+
+.post ~ .post {
+  padding-top: 0;
+}
+
+.post {
+  padding: 0px 0;
+  height: 1090px;
+  width: 850px;
+  position: relative;
+  border: 1px solid #e6e6e6;
+  border-radius: 0.9%;
+}
+.post .header {
+  height: 30px;
+  border-bottom: 1px solid #fff;
+  margin: 0px 0px;
+}
+.post .header .level-left {
+  border-bottom: 1px solid #e6e6e6;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+.post .header .level-left .image {
+  display: inline-block;
+}
+.post .header .level-left img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+.post .header .level-left span {
+  margin-left: 15px;
+  margin-bottom: 15px;
+  padding-left: 5px;
+  padding-top: 15px;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.post .img_cont .image_container {
+  height: 850px;
+  width: 850px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.post .button_container {
+  display: flex;
+}
+.post .button_container .heart {
+  margin-right: 15px;
+}
+.post .content {
+  margin: 7.5px 10px;
+}
+.post .far.fa-heart,
+.post .fas.fa-heart {
+  cursor: pointer;
+}
+.post .likes {
+  margin: 5px 0;
+  margin-bottom: 5px !important;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+.post .caption {
+  font-size: 0.85rem;
+}
+.post .caption span {
+  font-weight: bold;
+}
+.post .commentInputField {
+  border-top: 1px solid #e6e6e6;
+  margin-top: 35px;
+}
+.post .commentInputField .input_field {
+  width: 90%;
+  height: 30px;
+}
+
+/*# sourceMappingURL=post.css.map */

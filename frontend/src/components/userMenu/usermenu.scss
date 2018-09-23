@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:400i&subset=cyrillic');
+
+.userMenu_container{
+  position: fixed;
+  z-index: 4;
+  right:0;
+  top:120px;
+  display: block;
+  margin-right: 15px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #e6e6e6;
+  padding-right: 150px;
+  font-family: 'Noto Serif', serif;
+  font-size: 1.3em;
+  .list_user_menu{
+    list-style: none;
+    .profile_link{
+      cursor: pointer;
+    }
+    .exit_link{
+      cursor: pointer;
+    }
+    .separator_menu_item{
+      border-top: 1px solid #000;
+      width: 100%;
+      padding-bottom: 15px;
+    }
+  }
+}

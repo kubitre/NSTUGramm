@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css?family=Poiret+One&subset=cyrillic");
+@colorprimary : #e6e6e6;
+.NSTUGramm {
+  font-family: "Poiret", cursive;
+  background-color: #fefefe;
+}
+
+.group_container {
+  display: flex;
+}
+.group_container .window {
+  margin-top: 65px;
+  flex-grow: 3;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin-right: 65px;
+}
+.group_container .footer {
+  flex-grow: 1;
+  position: fixed;
+  z-index: 2;
+  right: 15px;
+  top: 150px;
+  width: 350px;
+}
+
+/*# sourceMappingURL=nstugramm.css.map */

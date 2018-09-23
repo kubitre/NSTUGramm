@@ -1,0 +1,28 @@
+.comment_button_container {
+  width: 25px;
+  height: 25px;
+}
+.comment_button_container .comment_button {
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+  border: none;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  content: inherit;
+}
+.comment_button_container .comment_button button {
+  content: url(../../../src/img/icons/comment.png);
+}
+.comment_button_container .comment_button button:before, .comment_button_container .comment_button button:after {
+  position: absolute;
+  border: none;
+  outline: none;
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease-out;
+  content: url(../../../src/img/icons/comment.png);
+}
+
+/*# sourceMappingURL=commentButton.css.map */
