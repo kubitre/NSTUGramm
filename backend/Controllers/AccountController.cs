@@ -50,7 +50,7 @@ namespace nstugram1._1.Controllers{
 
             var response = new {
                 access_token = encodedJwt,
-                username = identity.username
+                username = identity.Name
             };
 
             Response.ContentType = "application/json";
@@ -59,7 +59,7 @@ namespace nstugram1._1.Controllers{
 
         private ClaimsIdentity GetIdentity(StringValues username, StringValues password)
         {
-            
+            return null;
         }
     }
 }

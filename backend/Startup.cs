@@ -29,30 +29,30 @@ namespace nstugram1._1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                    .AddJwtBearer(options =>
-                    {
-                        options.RequireHttpsMetadata = false;
-                        options.TokenValidationParameters = new TokenValidationParameters
-                        {
-                            // укзывает, будет ли валидироваться издатель при валидации токена
-                            ValidateIssuer = true,
-                            // строка, представляющая издателя
-                            ValidIssuer = AuthOptions.ISSUER,
+            // services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            //         .AddJwtBearer(options =>
+            //         {
+            //             options.RequireHttpsMetadata = false;
+            //             options.TokenValidationParameters = new TokenValidationParameters
+            //             {
+            //                 // укзывает, будет ли валидироваться издатель при валидации токена
+            //                 ValidateIssuer = true,
+            //                 // строка, представляющая издателя
+            //                 ValidIssuer = AuthOptions.ISSUER,
  
-                            // будет ли валидироваться потребитель токена
-                            ValidateAudience = true,
-                            // установка потребителя токена
-                            ValidAudience = AuthOptions.AUDIENCE,
-                            // будет ли валидироваться время существования
-                            ValidateLifetime = true,
+            //                 // будет ли валидироваться потребитель токена
+            //                 ValidateAudience = true,
+            //                 // установка потребителя токена
+            //                 ValidAudience = AuthOptions.AUDIENCE,
+            //                 // будет ли валидироваться время существования
+            //                 ValidateLifetime = true,
  
-                            // установка ключа безопасности
-                            IssuerSigningKey = AuthOptions.GetSymmetricSecuritykey(),
-                            // валидация ключа безопасности
-                            ValidateIssuerSigningKey = true,
-                        };
-                    });
+            //                 // установка ключа безопасности
+            //                 IssuerSigningKey = AuthOptions.GetSymmetricSecuritykey(),
+            //                 // валидация ключа безопасности
+            //                 ValidateIssuerSigningKey = true,
+            //             };
+            //         });
 
             services.AddDbContext<nstugram1._1.Context.NstugramContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
@@ -72,8 +72,8 @@ namespace nstugram1._1
                 app.UseHsts();
             }
 
-            app.UseAuthentication();
-            app.UseHttpsRedirection();
+            // app.UseAuthentication();
+            // app.UseHttpsRedirection();
             app.UseMvc();
         }
     }

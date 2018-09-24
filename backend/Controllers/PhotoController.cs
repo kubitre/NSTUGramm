@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -30,11 +31,10 @@ namespace nstugram1._1.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Photo>>> GetPhotos([FromQuery]string filter){
-
+        public async Task<ActionResult<IEnumerable>> GetPhotos([FromQuery]string filter){
             try{
-                Regex reg_limit = new Regex("limit:[0-9]{1,4}");
-                Regex reg_offset = new Regex("offset:[0-9]{1,4}");
+                Regex reg_limit = new Regex("\"limit\":[0-9]{1,4}");
+                Regex reg_offset = new Regex("\"offset\":[0-9]{1,4}");
 
                 int limit = 0;
                 int offset = 0;
@@ -50,6 +50,23 @@ namespace nstugram1._1.Controllers
                 else{
                     return NotFound("error: {errorcode: \"404\"}");
                 }
+                
+                var postFromDb = from photo in this._context.Photos
+                                 join usr in this._context.Users on photo.idOwner equals usr.id
+                                 select new {
+                                     userName = usr.username,
+                                     userImage = usr.userImage,
+                                     photoId = photo.id,
+                                     photoAddress = photo.path,
+                                     photoAlr = photo.alt,
+                                     photoBody = photo.body,
+                                     likesCount = photo.likes,
+                                     timeCreated = photo.timeCreated,
+                                 };
+                
+
+                return postFromDb.ToList();                        
+
             }
             catch(System.Exception e){
                 return NotFound($"error: (errorcode: {e.Message})");

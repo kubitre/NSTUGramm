@@ -3,7 +3,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace nstugram1._1.Migrations
 {
-    public partial class initial : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -62,6 +62,7 @@ namespace nstugram1._1.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     idOwner = table.Column<long>(nullable: false),
                     path = table.Column<string>(nullable: true),
+                    body = table.Column<string>(nullable: true),
                     alt = table.Column<string>(nullable: true),
                     likes = table.Column<int>(nullable: false),
                     timeCreated = table.Column<long>(nullable: false)
@@ -78,6 +79,7 @@ namespace nstugram1._1.Migrations
                     id = table.Column<long>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     username = table.Column<string>(nullable: true),
+                    userImage = table.Column<string>(nullable: true),
                     email = table.Column<string>(nullable: true),
                     password = table.Column<string>(nullable: true),
                     timeCreated = table.Column<long>(nullable: false)

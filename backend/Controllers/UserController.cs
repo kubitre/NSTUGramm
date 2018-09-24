@@ -68,12 +68,10 @@ namespace nstugram1._1.Controllers
         [HttpPost]
         public IActionResult Create(User item)
         {
-            var userFromDb = this._context.Users.Find(item.email);
-            if(userFromDb != null){
-                return BadRequest("error: \"user-already-exist\"");
-            }
-
-
+            // var userFromDb = this._context.Users.Find(item.email);
+            // if(userFromDb != null){
+            //     return BadRequest("error: \"user-already-exist\"");
+            // }
             _context.Users.Add(item);
             _context.SaveChanges();
 

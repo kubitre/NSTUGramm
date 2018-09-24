@@ -9,8 +9,8 @@ using nstugram1._1.Context;
 namespace nstugram1._1.Migrations
 {
     [DbContext(typeof(NstugramContext))]
-    [Migration("20180917184916_initial")]
-    partial class initial
+    [Migration("20180924073245_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -79,6 +79,8 @@ namespace nstugram1._1.Migrations
 
                     b.Property<string>("alt");
 
+                    b.Property<string>("body");
+
                     b.Property<long>("idOwner");
 
                     b.Property<int>("likes");
@@ -102,6 +104,8 @@ namespace nstugram1._1.Migrations
                     b.Property<string>("password");
 
                     b.Property<long>("timeCreated");
+
+                    b.Property<string>("userImage");
 
                     b.Property<string>("username");
 

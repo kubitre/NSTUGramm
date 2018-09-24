@@ -30,26 +30,14 @@ namespace nstugram1._1.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<User>>> GetUsers([FromQuery]string filter){
-            
+        public async Task<ActionResult<List<Comment>>> GetComment([FromQuery]string idPhoto){
             try{
-                Regex reg_limit = new Regex("limit:[0-9]{1,4}");
-                Regex reg_offset = new Regex("offset:[0-9]{1,4}");
+                
+                int idphoto = int.Parse(new Regex(@"[0-9]{1,5}").Matches(idPhoto)[0].Value);;
 
-                int limit = 0;
-                int offset = 0;
+                var commentsForPhoto = this._context.Comments.Where(i => i.idPhoto == idphoto).ToList();
 
-                MatchCollection matches_of_limit = reg_limit.Matches(filter);
-                MatchCollection matches_of_offset = reg_offset.Matches(filter);
-
-                if(matches_of_limit.Count==1 && matches_of_offset.Count ==1){
-
-                    limit = int.Parse(new Regex(@"[0-9]{1,4}").Matches(matches_of_limit[0].Value)[0].Value);
-                    offset = int.Parse(new Regex(@"[0-9]{1,4}").Matches(matches_of_offset[0].Value)[0].Value);
-                }
-                else{
-                    return NotFound("error: {errorcode: \"404\"}");
-                }
+                return commentsForPhoto;
             }
             catch(System.Exception e){
                 return NotFound($"error: (errorcode: {e.Message})");

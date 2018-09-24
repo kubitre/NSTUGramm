@@ -77,6 +77,8 @@ namespace nstugram1._1.Migrations
 
                     b.Property<string>("alt");
 
+                    b.Property<string>("body");
+
                     b.Property<long>("idOwner");
 
                     b.Property<int>("likes");
@@ -100,6 +102,8 @@ namespace nstugram1._1.Migrations
                     b.Property<string>("password");
 
                     b.Property<long>("timeCreated");
+
+                    b.Property<string>("userImage");
 
                     b.Property<string>("username");
 
