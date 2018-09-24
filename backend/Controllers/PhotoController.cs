@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using backend.Models;
 using Microsoft.AspNetCore.Mvc;
 using nstugram1._1.Context;
 using nstugram1._1.Models;
@@ -73,6 +75,23 @@ namespace nstugram1._1.Controllers
             }
             return NotFound("error: {errorcode: \"404\"}");
              //TODO: write method for filtering info in db
+        }
+        [HttpPost]
+        [Route("upload")]
+        public async Task<IActionResult> UploadPhoto(PhotoViewModel model){
+            var file = model.File;
+
+            if(file.Length > 0){
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "uploads");
+                using(var filestream = new FileStream(Path.Combine(path, file.FileName), FileMode.Create)){
+                    await file.CopyToAsync(filestream);
+                }
+
+                model.source = $"/uploads{file.FileName}";
+                model.Extension = Path.GetExtension(file.FileName).Substring(1);
+            }
+
+            return BadRequest();
         }
 
         [HttpPost]
