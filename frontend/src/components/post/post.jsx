@@ -7,6 +7,8 @@ import Like from '../like/like';
 import CommentButton from '../commentButton/commentButton';
 import CommentField from '../commentField/commentField';
 
+import ApiClient from '../../services/ApiClient';
+
 //import main stylesheet of our component
 import './post.css';
 
@@ -24,6 +26,7 @@ export default class Post extends Component{
       commentActivate: false,
     };
 
+    this.clientApi = new ApiClient();
     console.log(this.data);
 
   }
@@ -42,6 +45,17 @@ export default class Post extends Component{
       })
     }
 
+    let sentUpdateLike = {
+      'photoId': this.data.photoId,
+      'likesCount': this.data.likesCount,
+    }
+
+    this.clientApi.post('api/like', JSON.stringify(sentUpdateLike)).then((response)=>{
+      console.log(response);
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
   }
 
   updatePostWithComment(event){
@@ -59,7 +73,7 @@ export default class Post extends Component{
             <span className="username">{this.data.userName}</span>
           </div>
           <div className="img_cont">
-            <img className="image_container" src={this.data.path} onClick={this.Like}/>
+            <img className="image_container" src={this.data.photoAddress} alt={this.data.photoAlr} onClick={this.Like}/>
           </div>
           <div className="content">
             <div className="button_container">
@@ -70,8 +84,8 @@ export default class Post extends Component{
                 <CommentButton update={this.updatePostWithComment}/>
               </div>
             </div>
-            <p className="likes">{this.state.likes} likes</p>
-            <p className="caption"><span>{this.data.userName}</span> {this.data.body}</p>
+            <p className="likes">{this.state.likesCount} likes</p>
+            <p className="caption"><span>{this.data.userName}</span> {this.data.photoBody}</p>
 
             {this.data.haveComment ?
               <div className="comments_container">

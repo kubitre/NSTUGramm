@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames/bind';
 
-
 //import stylesheets
 import './like.css';
 

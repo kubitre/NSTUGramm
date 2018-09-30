@@ -11,6 +11,8 @@ import Window from '../centralWindow/window';
 import Footer from '../footer/footer';
 import UploadPhoto from '../UploadPhoto/UploadPhoto';
 
+import ApiClient from '../../services/ApiClient';
+
 import addButton from './addButton.png';
 
 export default class Nstugramm extends Component{
@@ -20,23 +22,24 @@ export default class Nstugramm extends Component{
     this.state = {
       userPage: false,
       currentUser: {
-        postsCount: 12,
-        followersCount: 1,
-        followingsCount: 1,
-        userImage: "https://png.icons8.com/color/1600/avatar.png",
-        username: "test",
-        alt: "test",
+        userImage: '',
+        alt: ''
       },
+      currentUserId: 1,
       menu_small: false,
+      userPage: false,
+      userExit: false,
     };
     this.updateWindowWithOpenUserPage = this.updateWindowWithOpenUserPage.bind(this);
-
+    this.redirectToUserPage = this.redirectToUserPage.bind(this);
   }
 
 
 
   componentDidMount(){
     window.addEventListener('scroll', this.handleScroll);
+
+
   }
 
   componentWillUnmount(){
@@ -60,22 +63,29 @@ export default class Nstugramm extends Component{
   updateWindowWithOpenUserPage(flag){
     this.setState({
       userPage: flag,
-    })
+    });
   }
 
+  redirectToUserPage(ev){
+    if(ev === 1){
+      this.setState({
+        userPage: true
+      });
+    }
+    else if(ev === 2){
+      this.setState({
+        userExit: true
+      });
+    }
+  }
 
 
   render(){
     return(
         <div className="NSTUGramm">
-          <div className="navbar">
-            <Navbar updateWindow={this.updateWindowWithOpenUserPage} smallMenu={this.state.menu_small}/>
-          </div>
-          {this.state.userPage ?
-            <div className="userPage_container">
-              <UserPage user={this.state.currentUser}/>
+            <div className="navbar">
+              <Navbar updateWindow={this.updateWindowWithOpenUserPage} smallMenu={this.state.menu_small} redirectToUserPage={this.redirectToUserPage}/>
             </div>
-           :
             <div className="group_container">
               <div className="uploadContainer">
                 <UploadPhoto />
@@ -87,7 +97,6 @@ export default class Nstugramm extends Component{
                 <Footer currentUser={this.state.currentUser}/>
               </div>
             </div>
-          }
         </div>
     );
   }

@@ -23,11 +23,7 @@ export default class UserPage extends Component{
       placeholder_followings_count: "Подписок",
       placeholder_followers_count: "Подписчиков",
 
-      postsCount: this.data.postsCount,
-      followingsCount: this.data.followingsCount,
-      followersCount: this.data.followersCount,
 
-      userName: this.data.username,
       photos: [
         1:
         {
@@ -75,10 +71,11 @@ export default class UserPage extends Component{
           <div className="user_block__container">
             <div className="user_info">
               <div className="user_photo">
-                <img src={this.data.userImage} />
+                {//<img src={this.data.userImage} />
+                }
               </div>
               <div className="user_name_folowers_post_info">
-                <div className="username">{this.state.userName}</div>
+                {/*<div className="username">{this.state.userName}</div>
                 <div className="block_counts">
                   <div className="post_counter">
                     <CountBlock count_placeholder={this.state.placeholder_posts_count} count={this.state.postsCount}/>
@@ -89,7 +86,7 @@ export default class UserPage extends Component{
                   <div className="followings_counter">
                     <CountBlock count_placeholder={this.state.placeholder_followers_count} count={this.state.followersCount}/>
                   </div>
-                </div>
+                </div>*/}
                 <div className="button_follow">
 
                 </div>

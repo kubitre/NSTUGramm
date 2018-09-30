@@ -28,6 +28,7 @@ export default class Navbar extends Component{
     };
 
     this.openUserMenu = this.openUserMenu.bind(this);
+    this.redirectToUserPage = this.redirectToUserPage.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState){
@@ -66,6 +67,10 @@ export default class Navbar extends Component{
 
   }
 
+  redirectToUserPage(ev){
+    this.props.updateWindow(ev);
+  }
+
   render(){
     return (
       <div className="container">
@@ -90,7 +95,7 @@ export default class Navbar extends Component{
         <div className="user_menu">
         {this.state.openMenu ?
           <div className="user_menu">
-            <UserMenu />
+            <UserMenu user={this.state.currentUser} redirectToUserPage={this.redirectToUserPage}/>
           </div>
           : null
         }

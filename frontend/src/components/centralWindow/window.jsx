@@ -61,6 +61,7 @@ export default class Window extends Component{
       }
     };
     this.clientApi.get('api/photo', options).then((photos)=>{
+      console.log(photos);
       this.setState({
         "photos": photos.data
       });
