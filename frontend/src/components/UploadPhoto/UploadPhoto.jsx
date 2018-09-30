@@ -97,7 +97,7 @@ export default class UploadPhoto extends Component{
                 <button type="submit">Upload</button>
               </form>
               <div className="ExitButton" onClick={this.handlerExit}>
-                <img src={exitButton} />
+                <img src={exitButton} alt="exit"/>
               </div>
             </div>
             {this.state.photoLoaded ?
@@ -110,7 +110,7 @@ export default class UploadPhoto extends Component{
           </div>
           :
           <div className="addImage" onClick={this.handleClick}>
-            <img src={addButton} />
+            <img src={addButton} alt="exit"/>
           </div>
         }
       </div>

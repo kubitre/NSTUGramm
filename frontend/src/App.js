@@ -1,6 +1,6 @@
 //imports libraries needs to our component
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Switch, Route, Redirect, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 
 //imports another component for our component
 import Authentification from './components/auth/authentification';

@@ -2,6 +2,7 @@
   padding-top: 50px;
   margin-top: 15px;
   background-color: #fff;
+    boxShadow: 0 0 40px 5px rgba(0, 0, 0, 0.6);
 }
 
 .post ~ .post{
@@ -10,11 +11,10 @@
 
 .post{
   padding: 0px 0;
-  height: 1090px;
   width: 850px;
   position: relative;
 
-  border: 1px solid #e6e6e6;
+  border: 1px solid rgba(0,0,0,0.3);
   border-radius: 0.9%;
 
   .header{
@@ -47,14 +47,6 @@
         font-weight: bold;
       }
     }
-  }
-  .img_cont .image_container{
-    height: 850px;
-    width: 850px;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-
   }
 
   .button_container{

@@ -11,6 +11,9 @@ import './userPage.css';
 import CountBlock from './countBlock/countBlock';
 import UserPhoto from './userPhoto/userPhoto';
 
+//services
+import ApiClient from '../../services/ApiClient';
+
 
 export default class UserPage extends Component{
   constructor(props){
@@ -23,9 +26,15 @@ export default class UserPage extends Component{
       placeholder_followings_count: "Подписок",
       placeholder_followers_count: "Подписчиков",
 
+      userid: 1,
+      userName: "test",
+      userImage: "https://images.pexels.com/photos/1049887/pexels-photo-1049887.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+
+      postsCount: 2,
+      followingsCount: 2,
+      followersCount: 2,
 
       photos: [
-        1:
         {
           id: 1,
           photoUrl: "https://images.pexels.com/photos/1049887/pexels-photo-1049887.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
@@ -33,7 +42,6 @@ export default class UserPage extends Component{
           countLikes: 1,
           countComments: 1,
         },
-        2:
         {
           id: 2,
           photoUrl: "https://images.pexels.com/photos/1216491/pexels-photo-1216491.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
@@ -41,7 +49,6 @@ export default class UserPage extends Component{
           countLikes: 15,
           countComments: 3,
         },
-        3:
         {
           id: 3,
           photoUrl: "http://diarrea.eu/wp-content/uploads/2018/02/gatto-interno2-e1481812668842-678x381.jpg",
@@ -49,7 +56,6 @@ export default class UserPage extends Component{
           countLikes: 0,
           countComments: 4
         },
-        4:
         {
           id: 4,
           photoUrl: "https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg?cs=srgb&dl=adorable-animal-blur-617278.jpg&fm=jpg",
@@ -59,23 +65,43 @@ export default class UserPage extends Component{
         }
       ],
     }
+
+    this.clientapi = new ApiClient();
   }
 
   fetchPhotosUser(){
 
   }
 
+  componentDidMount(){
+    this.clientapi.get(`api/user/${this.state.userid}`).then((user)=>{
+      console.log(user);
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  }
+
   render(){
+    var style={
+      backgroundImage: `url(${this.state.userImage})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      borderRadius: '50%',
+      border: '1px solid rgba(0,0,0,0.3)',
+      width: '200px',
+      height: '200px'
+    }
     return(
         <div className="userpage_container">
           <div className="user_block__container">
             <div className="user_info">
               <div className="user_photo">
-                {//<img src={this.data.userImage} />
-                }
+                <div style={style} />
               </div>
               <div className="user_name_folowers_post_info">
-                {/*<div className="username">{this.state.userName}</div>
+                <div className="username">{this.state.userName}</div>
                 <div className="block_counts">
                   <div className="post_counter">
                     <CountBlock count_placeholder={this.state.placeholder_posts_count} count={this.state.postsCount}/>
@@ -86,14 +112,21 @@ export default class UserPage extends Component{
                   <div className="followings_counter">
                     <CountBlock count_placeholder={this.state.placeholder_followers_count} count={this.state.followersCount}/>
                   </div>
-                </div>*/}
+                </div>
                 <div className="button_follow">
 
                 </div>
               </div>
             </div>
             <div className="user_photo_container">
-              <UserPhoto userPhoto={this.state.photos[0]}/>
+              <UserPhoto key={1} userPhoto={this.state.photos[0]}/>
+              <UserPhoto key={2} userPhoto={this.state.photos[1]}/>
+              <UserPhoto key={3} userPhoto={this.state.photos[2]}/>
+              <UserPhoto key={4} userPhoto={this.state.photos[3]}/>
+                <UserPhoto key={5} userPhoto={this.state.photos[0]}/>
+                <UserPhoto key={6} userPhoto={this.state.photos[1]}/>
+                <UserPhoto key={7} userPhoto={this.state.photos[2]}/>
+                <UserPhoto key={8} userPhoto={this.state.photos[3]}/>
             </div>
           </div>
         </div>

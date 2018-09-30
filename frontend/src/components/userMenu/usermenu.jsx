@@ -2,8 +2,6 @@
 import React, { Component } from 'react';
 
 
-import UserPage from '../userPage/userPage';
-
 //import stylesheet
 import './usermenu.css';
 

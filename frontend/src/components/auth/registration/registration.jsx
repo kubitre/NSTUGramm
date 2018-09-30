@@ -76,7 +76,7 @@ export default class Registration extends Component{
       <div className="registration_container">
         <div className="registration_form">
           <div className="label_image">
-            <img src={logo_temp}/>
+            <img src={logo_temp} alt="nstugramm"/>
           </div>
           <form onSubmit={this.handleSending}>
             <div className="login_input">

@@ -65,37 +65,50 @@ export default class Post extends Component{
   }
 
   render(){
+    var style = {
+      backgroundImage: 'url('+this.data.photo+')',
+      paddingTop: '50px',
+      marginTop: '25px',
+      height: '700px',
+      width: '100%',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      border: 'none',
+      borderBottom: '1 px solid #e6e6e6',
+    };
+
     return(
       <div className="post">
         <div className="header level">
           <div className="level-left">
-            <img className="image" src={this.data.userImage} />
+            <img className="image" src={this.data.userImage} alt="your avatar" />
             <span className="username">{this.data.userName}</span>
           </div>
-          <div className="img_cont">
-            <img className="image_container" src={this.data.photoAddress} alt={this.data.photoAlr} onClick={this.Like}/>
+        </div>
+        <div className="img_cont">
+          <div className="image_container" style={style} alt={this.data.photoAlr} onClick={this.Like}/>
+        </div>
+        <div className="content">
+          <div className="button_container">
+            <div className="heart">
+              <Like update={this.updatePostWithLike} liked={this.data.liked}/>
+            </div>
+            <div className="comment">
+              <CommentButton update={this.updatePostWithComment}/>
+            </div>
           </div>
-          <div className="content">
-            <div className="button_container">
-              <div className="heart">
-                <Like update={this.updatePostWithLike} liked={this.data.liked}/>
-              </div>
-              <div className="comment">
-                <CommentButton update={this.updatePostWithComment}/>
-              </div>
-            </div>
-            <p className="likes">{this.state.likesCount} likes</p>
-            <p className="caption"><span>{this.data.userName}</span> {this.data.photoBody}</p>
+          <p className="likes">{this.state.likesCount} likes</p>
+          <p className="caption"><span>{this.data.userName}</span> {this.data.photoBody}</p>
 
-            {this.data.haveComment ?
-              <div className="comments_container">
-                <Comment comment = {this.data.endedcomment}/>
-              </div>:
-              null
-            }
-            <div className="commentInputField">
-              <CommentField />
-            </div>
+          {this.data.haveComment ?
+            <div className="comments_container">
+              <Comment comment = {this.data.endedcomment}/>
+            </div>:
+            null
+          }
+          <div className="commentInputField">
+            <CommentField />
           </div>
         </div>
       </div>

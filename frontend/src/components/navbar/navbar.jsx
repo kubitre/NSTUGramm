@@ -68,7 +68,7 @@ export default class Navbar extends Component{
   }
 
   redirectToUserPage(ev){
-    this.props.updateWindow(ev);
+    this.props.redirectToUserPage(ev);
   }
 
   render(){

@@ -1,6 +1,15 @@
 
-.userPhoto_container{
-  width: 150px;
-  height: 250px;
-  
+.user_photo{
+  margin: 15px;
+  cursor: pointer;
+  overflow: hidden;
+  width: 18vw;
+  height: 18vw;
+  img{
+    width: 100%;
+    transition: transform 500ms ease;
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
 }

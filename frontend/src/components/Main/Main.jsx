@@ -1,6 +1,6 @@
 //import foreign libraries for our component
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Switch, Route, Redirect, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 
 import Nstugramm from '../Nstugramm/nstugramm';
 import userPage from '../userPage/userPage';
@@ -17,7 +17,11 @@ export default class Main extends Component{
   }
 
   callUserPage(ev){
-
+    if(ev === 1){
+      this.setState({
+        userPage: true
+      });
+    }
   }
 
   render(){
@@ -27,7 +31,7 @@ export default class Main extends Component{
           {this.state.userPage ?
             <Redirect to='/userPage' />
             :
-            <Main />
+            <Nstugramm updateWindow={this.callUserPage}/>
           }
           <Switch>
             <Route path='/userPage' component={userPage} />
