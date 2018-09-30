@@ -1,0 +1,96 @@
+.container{
+  background: rgba(0,0,0, 0);
+
+  .addImage{
+    img{
+      width: 50px;
+      height: 50px;
+      opacity: 0.3;
+      transition-property: opacity, width, height, margin-left, margin-top;
+      transition-duration: .6s;
+      &:hover{
+        opacity: 1;
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+
+}
+
+.photoContainer{
+  img{
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.withBack{
+  background: rgba(0,0,0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  .uploadContainer{
+    .ContainerWithFormAnButton{
+      display: flex;
+      .ExitButton{
+        img{
+          width: 50px;
+          height: 50px;
+          transition: opacity .4s;
+          opacity: 0.5;
+
+          &:hover{
+            opacity: 1;
+          }
+        }
+      }
+    }
+    width: 650px;
+    margin-left: 450px;
+    margin-top: 60px;
+    height: 550px;
+    background: rgba(255,255,255, 0.9);
+    padding: 100px;
+    h1{
+      color: #FF4000;
+      padding-left: 100px;
+      padding-bottom: 100px;
+    }
+    .form{
+      display: block;
+
+      button{
+        margin-left: 300px;
+        background: #e6e6e6;
+        padding: 15px;
+        margin-top: 35px;
+        border-radius: 25px;
+        border: 1px solid #eee;
+        transition: background-color .7s;
+
+        &:hover{
+          background-color: #f6f6f6;
+        }
+      }
+    }
+    .uploadingNewPhoto{
+      width: 100%;
+    	max-width: 250px;
+    	position: relative;
+    	margin: 1em auto;
+    	background: #34495e;
+    	border-radius: 5px;
+    }
+    .uploadingNewPhoto:hover p:before{
+	     content: "\01F4C2";
+    }
+  }
+  .uploadContainer .download{
+    h1{
+      padding-bottom: 50px;
+    }
+  }
+}

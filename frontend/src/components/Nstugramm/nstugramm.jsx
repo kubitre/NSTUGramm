@@ -9,6 +9,9 @@ import Navbar from '../navbar/navbar';
 import UserPage from '../userPage/userPage';
 import Window from '../centralWindow/window';
 import Footer from '../footer/footer';
+import UploadPhoto from '../UploadPhoto/UploadPhoto';
+
+import addButton from './addButton.png';
 
 export default class Nstugramm extends Component{
   constructor(props){
@@ -27,6 +30,7 @@ export default class Nstugramm extends Component{
       menu_small: false,
     };
     this.updateWindowWithOpenUserPage = this.updateWindowWithOpenUserPage.bind(this);
+
   }
 
 
@@ -59,6 +63,8 @@ export default class Nstugramm extends Component{
     })
   }
 
+
+
   render(){
     return(
         <div className="NSTUGramm">
@@ -71,6 +77,9 @@ export default class Nstugramm extends Component{
             </div>
            :
             <div className="group_container">
+              <div className="uploadContainer">
+                <UploadPhoto />
+              </div>
               <div className="window">
                 <Window />
               </div>

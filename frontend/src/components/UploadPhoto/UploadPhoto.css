@@ -1,0 +1,86 @@
+@charset "UTF-8";
+.container {
+  background: rgba(0, 0, 0, 0);
+}
+.container .addImage img {
+  width: 50px;
+  height: 50px;
+  opacity: 0.3;
+  transition-property: opacity, width, height, margin-left, margin-top;
+  transition-duration: 0.6s;
+}
+.container .addImage img:hover {
+  opacity: 1;
+  width: 100px;
+  height: 100px;
+}
+
+.photoContainer img {
+  width: 200px;
+  height: 200px;
+}
+
+.withBack {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.withBack .uploadContainer {
+  width: 650px;
+  margin-left: 450px;
+  margin-top: 60px;
+  height: 550px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 100px;
+}
+.withBack .uploadContainer .ContainerWithFormAnButton {
+  display: flex;
+}
+.withBack .uploadContainer .ContainerWithFormAnButton .ExitButton img {
+  width: 50px;
+  height: 50px;
+  transition: opacity 0.4s;
+  opacity: 0.5;
+}
+.withBack .uploadContainer .ContainerWithFormAnButton .ExitButton img:hover {
+  opacity: 1;
+}
+.withBack .uploadContainer h1 {
+  color: #FF4000;
+  padding-left: 100px;
+  padding-bottom: 100px;
+}
+.withBack .uploadContainer .form {
+  display: block;
+}
+.withBack .uploadContainer .form button {
+  margin-left: 300px;
+  background: #e6e6e6;
+  padding: 15px;
+  margin-top: 35px;
+  border-radius: 25px;
+  border: 1px solid #eee;
+  transition: background-color 0.7s;
+}
+.withBack .uploadContainer .form button:hover {
+  background-color: #f6f6f6;
+}
+.withBack .uploadContainer .uploadingNewPhoto {
+  width: 100%;
+  max-width: 250px;
+  position: relative;
+  margin: 1em auto;
+  background: #34495e;
+  border-radius: 5px;
+}
+.withBack .uploadContainer .uploadingNewPhoto:hover p:before {
+  content: "📂";
+}
+.withBack .uploadContainer .download h1 {
+  padding-bottom: 50px;
+}
+
+/*# sourceMappingURL=UploadPhoto.css.map */

@@ -1,0 +1,217 @@
+@charset "UTF-8";
+.filterCarousel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  font-weight: 300;
+  background: #444;
+  top: 0;
+  left: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  overflow: auto;
+  background: #555;
+}
+
+.settings {
+  width: 30%;
+  max-width: 350px;
+  background: #555;
+  height: 100px;
+}
+
+.settings .setting {
+  padding: 0 20px;
+  margin-top: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.settings .setting label {
+  font-family: Roboto;
+  text-transform: uppercase;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.settings .setting input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.reset {
+  font-family: Roboto;
+  font-size: 15px;
+  border: 0;
+  padding: 10px 15px;
+  align-self: center;
+  background: #b382cc;
+  outline: none;
+  color: #efefef;
+  cursor: pointer;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.filter {
+  flex: 1;
+}
+
+.filter .image-container {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  transition: filter 0.125s ease;
+}
+
+.filter .image {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+}
+
+.filter-list {
+  display: flex;
+  width: 100%;
+  height: 150px;
+  background: #353535;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.filter-list .filter {
+  flex: 1;
+  margin-right: 20px;
+  background: #353535;
+  cursor: pointer;
+  border: 3px solid transparent;
+}
+
+.filter-list .filter:last-child {
+  margin-right: 0px;
+}
+
+.filter-list .filter:hover {
+  border: 3px solid #b382cc;
+}
+
+.filter-list .filter.selected {
+  border: 3px solid #b382cc;
+}
+
+/*стили для диапазона*/
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: #feeaff;
+  border-radius: 0px;
+  border: 0px solid #000101;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border: 0px solid #3d3d3d;
+  height: 15px;
+  width: 12px;
+  border-radius: 7px;
+  background: #8689cc;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -3.6px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #efc5e9;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  background: #feeaff;
+  border-radius: 25px;
+  border: 0px solid #000101;
+}
+
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border: 0px solid #000000;
+  height: 15px;
+  width: 12px;
+  border-radius: 7px;
+  background: #8689cc;
+  cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  border-width: 39px 0;
+  color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: #feeaff;
+  border: 0px solid #000101;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+}
+
+input[type=range]::-ms-fill-upper {
+  background: #feeaff;
+  border: 0px solid #000101;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+}
+
+input[type=range]::-ms-thumb {
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border: 0px solid #000000;
+  height: 16px;
+  width: 12px;
+  border-radius: 5px;
+  background: #8689cc;
+  cursor: pointer;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: #efc5e9;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+  background: #efc5e9;
+}
+
+/*# sourceMappingURL=FilterCarousel.css.map */

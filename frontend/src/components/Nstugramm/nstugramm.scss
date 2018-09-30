@@ -10,6 +10,13 @@
 .group_container{
   display: flex;
 
+  .uploadContainer{
+    z-index: 999999;
+
+    position: fixed;
+    display: block;
+  }
+
   .window{
     margin-top: 65px;
     flex-grow: 3;
