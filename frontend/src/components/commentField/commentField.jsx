@@ -22,7 +22,7 @@ export default class CommentField extends Component{
   render(){
     return(
       <form onSubmit={this.handleSubmitSend} className="sending_comment_form">
-        <input className="input_field" type="text" value={this.state.value_comment} placeholder={this.state.placeholderComment}/>
+        <input className="input_field" type="text" placeholder={this.state.placeholderComment}/>
         <input type="submit" className="sendButton"/>
       </form>
     );
