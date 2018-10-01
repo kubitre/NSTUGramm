@@ -19,9 +19,12 @@ export default class CommentButton extends Component{
   }
 
   render(){
+    // var styleButton = {
+    //   backgroundImage: `url(${})`
+    // }
     return(
       <div className="comment_button_container">
-        <button className="comment_button" onClick={this.commented} title={this.state.titleCommentButton}></button>
+        <div className="button" onClick={this.commented} />
       </div>
     );
   }

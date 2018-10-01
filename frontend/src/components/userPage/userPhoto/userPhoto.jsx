@@ -51,8 +51,6 @@ export default class UserPhoto extends Component{
 
   render(){
     let tileStyle = {};
-    let headerStyle = {};
-    let zoom = {};
     // When tile clicked
     if (this.state.open) {
       tileStyle = {
@@ -62,12 +60,12 @@ export default class UserPhoto extends Component{
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        margin: '0',
-        marginTop: '-31vw',
-        marginLeft: '-31vw',
+        position: 'fixed',
+        top: '0',
+        left: '0',
+        bottom: '0',
+        right: '0',
+        margin: '80px',
         boxShadow: '0 0 40px 5px rgba(0, 0, 0, 0.3)',
         transform: 'none'
       };

@@ -14,12 +14,8 @@
   display: block;
 }
 .group_container .window {
-  margin-top: 65px;
+  margin-top: 100px;
   flex-grow: 3;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  margin-right: 65px;
 }
 .group_container .footer {
   flex-grow: 1;

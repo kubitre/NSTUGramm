@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <Router exact path="/">
         <div>
-        {this.state.isAuth ?
+        {!this.state.isAuth ?
           <Redirect to={'/auth'} />
           :
           <Redirect to={'/gramm'} />

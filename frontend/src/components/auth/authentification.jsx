@@ -1,5 +1,6 @@
 //import foreign libraries for our component
 import React, { Component } from 'react';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 
 //import my component of registration and login
 import Login from './login/login';
@@ -17,16 +18,24 @@ export default class Authentification extends Component{
     this.state = {
       placeholderLogin: "никнейм или email",
       placeholderPassword: "пароль",
-      registrationActivated: false,
+      registrationActivated: true,
     };
   }
 
   render(){
     return (
-      !this.state.registrationActivated ?
-        <Login />
-      :
-        <Registration />
+      <Router>
+        <div className="authPanel">
+            {!this.state.registrationActivated ?
+              <Redirect to='/registration' />
+            :
+              <Login />
+            }
+            <Switch>
+              <Route path='/registration' Component={Registration}/>
+            </Switch>
+        </div>
+      </Router>
     );
   }
 }

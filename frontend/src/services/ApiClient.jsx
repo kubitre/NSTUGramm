@@ -9,8 +9,20 @@ export default class ApiClient{
 		return axios.get(url, options);
 	}
 
-	post(endpoint = "", data ={}, options = {headers: {'Content-Type': 'application/json'}}){
+	post(endpoint = "", body = {}){
+		console.log(body);
 		const url = `${apiUrl}${endpoint}`;
-		return axios.post(url, data, options);
+		return axios.post(url, body, {headers: {'Content-Type':'application/json;charset=UTF-8'}});
 	}
+
+	postFetch(endpoint = "", body=""){
+		fetch(`${apiUrl}/${endpoint}`, {
+			method: 'POST',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json;charset=UTF-8'
+			},
+			data: body
+		})
+	};
 }

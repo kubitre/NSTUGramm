@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 
 import './login.css';
 
-//import logotype
-import logo_temp from '../../../../src/img/logo_temp.png' ;
+import ApiClient from '../../../services/ApiClient';
 
 export default class Login extends Component{
   constructor(props){
@@ -19,10 +18,18 @@ export default class Login extends Component{
 
     this.handleChangeLogin = this.handleChangeLogin.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
+    this.handleSending = this.handleSending.bind(this);
+
+    this.clientApi = new ApiClient();
   }
 
   handleSending(event){
     event.preventDefault();
+
+    this.clientApi.post('api/user/login', {username: this.state.valueLogin, password: this.state.valuePassword}).then(response=>{
+      console.log(response);
+    })
+    .catch(err=>console.log(err));
   }
 
   handleChangeLogin(event){
@@ -42,14 +49,16 @@ export default class Login extends Component{
       <div className="login_container">
         <div className="login_form">
           <div className="label_image">
-            <img src={logo_temp} alt={this.state.nameProject}/>
+            <span>{this.state.nameProject}</span>
           </div>
           <form onSubmit={this.handleSending}>
-            <div className="login_input font_form">
-              <input type="text" placeholder={this.state.placeholderLogin} onChange={this.handleChangeLogin}/>
+            <div className="inputstyle">
+              <input className="form-control" type="text" onChange={this.handleChangeLogin} required/>
+              <label>login:</label>
             </div>
-            <div className="password_input font_form">
-              <input type="password" placeholder={this.state.placeholderPassword} onChange={this.handleChangePassword}/>
+            <div className="inputstyle">
+              <input className="form-control" type="password" onChange={this.handleChangePassword} required/>
+              <label>password:</label>
             </div>
             <div className="input_button font_form">
               <input type="submit" value="Войти" />

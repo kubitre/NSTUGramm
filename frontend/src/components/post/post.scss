@@ -1,8 +1,10 @@
 .post{
-  padding-top: 50px;
-  margin-top: 15px;
+  padding-top: 0px;
+  padding-top: 15px;
+  margin-bottom: 25px;
+  margin: 0 auto;
   background-color: #fff;
-    boxShadow: 0 0 40px 5px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
 }
 
 .post ~ .post{
@@ -10,7 +12,7 @@
 }
 
 .post{
-  padding: 0px 0;
+  margin-bottom: 10px;
   width: 850px;
   position: relative;
 

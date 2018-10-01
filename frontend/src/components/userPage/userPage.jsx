@@ -25,10 +25,11 @@ export default class UserPage extends Component{
       placeholder_posts_count: "Постов",
       placeholder_followings_count: "Подписок",
       placeholder_followers_count: "Подписчиков",
+      userInfo: {
+        userName: 'undefined'
+      },
 
       userid: 1,
-      userName: "test",
-      userImage: "https://images.pexels.com/photos/1049887/pexels-photo-1049887.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
 
       postsCount: 2,
       followingsCount: 2,
@@ -76,6 +77,13 @@ export default class UserPage extends Component{
   componentDidMount(){
     this.clientapi.get(`api/user/${this.state.userid}`).then((user)=>{
       console.log(user);
+      this.setState({
+        userInfo: {
+          id: user.data.id,
+          userName: user.data.username,
+          userImage: user.data.userImage
+        },
+      })
     })
     .catch((err)=>{
       console.log(err);
@@ -84,7 +92,7 @@ export default class UserPage extends Component{
 
   render(){
     var style={
-      backgroundImage: `url(${this.state.userImage})`,
+      backgroundImage: `url(${this.state.userInfo.userImage})`,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
       backgroundSize: 'cover',
@@ -101,7 +109,7 @@ export default class UserPage extends Component{
                 <div style={style} />
               </div>
               <div className="user_name_folowers_post_info">
-                <div className="username">{this.state.userName}</div>
+                <div className="username">{this.state.userInfo.userName}</div>
                 <div className="block_counts">
                   <div className="post_counter">
                     <CountBlock count_placeholder={this.state.placeholder_posts_count} count={this.state.postsCount}/>
@@ -119,14 +127,22 @@ export default class UserPage extends Component{
               </div>
             </div>
             <div className="user_photo_container">
-              <UserPhoto key={1} userPhoto={this.state.photos[0]}/>
-              <UserPhoto key={2} userPhoto={this.state.photos[1]}/>
-              <UserPhoto key={3} userPhoto={this.state.photos[2]}/>
-              <UserPhoto key={4} userPhoto={this.state.photos[3]}/>
+                <UserPhoto key={1} userPhoto={this.state.photos[0]}/>
+                <UserPhoto key={2} userPhoto={this.state.photos[1]}/>
+                <UserPhoto key={3} userPhoto={this.state.photos[2]}/>
+                <UserPhoto key={4} userPhoto={this.state.photos[3]}/>
                 <UserPhoto key={5} userPhoto={this.state.photos[0]}/>
                 <UserPhoto key={6} userPhoto={this.state.photos[1]}/>
                 <UserPhoto key={7} userPhoto={this.state.photos[2]}/>
                 <UserPhoto key={8} userPhoto={this.state.photos[3]}/>
+                <UserPhoto key={9} userPhoto={this.state.photos[0]}/>
+                <UserPhoto key={10} userPhoto={this.state.photos[1]}/>
+                <UserPhoto key={11} userPhoto={this.state.photos[2]}/>
+                <UserPhoto key={12} userPhoto={this.state.photos[3]}/>
+                <UserPhoto key={13} userPhoto={this.state.photos[0]}/>
+                <UserPhoto key={14} userPhoto={this.state.photos[1]}/>
+                <UserPhoto key={15} userPhoto={this.state.photos[2]}/>
+                <UserPhoto key={16} userPhoto={this.state.photos[3]}/>
             </div>
           </div>
         </div>

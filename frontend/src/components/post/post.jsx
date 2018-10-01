@@ -66,7 +66,7 @@ export default class Post extends Component{
 
   render(){
     var style = {
-      backgroundImage: 'url('+this.data.photo+')',
+      backgroundImage: 'url('+this.data.photoAddress+')',
       paddingTop: '50px',
       marginTop: '25px',
       height: '700px',

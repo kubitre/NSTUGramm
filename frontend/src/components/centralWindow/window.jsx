@@ -75,7 +75,6 @@ export default class Window extends Component{
   render(){
     return(
       <div className="Posts">
-        {console.log(this.state.photos)}
         {this.state.photos.map((pst)=>
           <Post key={pst._id} data={pst} />
         )}
