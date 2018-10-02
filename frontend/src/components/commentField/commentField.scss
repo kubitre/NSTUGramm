@@ -1,26 +1,30 @@
-$sending_button: url(../../img/sent.png);
+$sending_button: url(./icon.png);
 
-.sending_comment_form{
+
+.form{
   display: flex;
+  flex-direction: row;
 }
-
-.sendButton{
-  background: $sending_button;
-  background-repeat: no-repeat;
-  content: none;
-  border: none;
-  width: 40px;
-  height: 40px;
-  margin-left: 10px;
-}
-
 .input_field{
   padding: 5px 5px;
   border: none;
   border-bottom: 1px solid #e6e6e6;
   padding-left: 25px;
+  outline: none;
 }
 
-.input_field:before{
-  border: none;
+.button{
+  background-image: $sending_button;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 45px;
+  height: auto;
+  cursor: pointer;
+  opacity: 0.5;
+
+  &:hover{
+    transform: scale(1.1);
+    transition: all .4s;
+    opacity: 1;
+  }
 }

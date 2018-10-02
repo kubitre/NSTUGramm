@@ -21,13 +21,13 @@ export default class Post extends Component{
     this.updatePostWithComment = this.updatePostWithComment.bind(this);
 
     this.state = {
+      user: this.props.user,
       liked: this.data.liked,
       likesCount: this.data.likesCount,
       commentActivate: false,
     };
 
     this.clientApi = new ApiClient();
-    console.log(this.data);
 
   }
 
@@ -43,12 +43,13 @@ export default class Post extends Component{
         liked: ev,
         likesCount: this.state.likesCount - 1,
       })
-    }
+    };
+
 
     let sentUpdateLike = {
       'photoId': this.data.photoId,
       'likesCount': this.data.likesCount,
-    }
+    };
 
     this.clientApi.post('api/like', JSON.stringify(sentUpdateLike)).then((response)=>{
       console.log(response);
@@ -80,11 +81,9 @@ export default class Post extends Component{
 
     return(
       <div className="post">
-        <div className="header level">
-          <div className="level-left">
-            <img className="image" src={this.data.userImage} alt="your avatar" />
-            <span className="username">{this.data.userName}</span>
-          </div>
+        <div className="header">
+          <img className="image" src={this.data.userImage} alt="your avatar" />
+          <span>{this.data.userName}</span>
         </div>
         <div className="img_cont">
           <div className="image_container" style={style} alt={this.data.photoAlr} onClick={this.Like}/>
@@ -108,7 +107,7 @@ export default class Post extends Component{
             null
           }
           <div className="commentInputField">
-            <CommentField />
+            <CommentField userid={this.state.userid}/>
           </div>
         </div>
       </div>

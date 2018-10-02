@@ -15,8 +15,10 @@ export default class Window extends Component{
     super(props);
 
     this.state = {
+      user: this.props.user,
       photos: [],
-    }
+    };
+
     this.clientApi = new ApiClient();
   }
 
@@ -31,22 +33,21 @@ export default class Window extends Component{
       }
     };
     this.clientApi.get('api/photo', options).then((photos)=>{
-      console.log(photos);
       this.setState({
         photos: photos.data
       });
-      console.log(this.state.photos);
     })
     .catch((err)=>{
       console.log(err);
     })
+    this.forceUpdate();
   }
 
   render(){
     return(
       <div className="Posts">
         {this.state.photos.map((pst)=>
-          <Post key={pst.photoId} data={pst} />
+          <Post key={pst.photoId} data={pst} user={this.state.user}/>
         )}
       </div>
     );

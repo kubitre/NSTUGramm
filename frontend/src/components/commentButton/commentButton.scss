@@ -1,30 +1,18 @@
-$comment_icon: url(../../../src/img/icons/comment.png);
-
-$icon-size: 25px;
-
+$icon: url(./icon.png);
 .comment_button_container{
-  width: $icon-size;
-  height: $icon-size;
-  .comment_button{
-    width: 25px;
-    height: 25px;
-    background-color: transparent;
-    border: none;
-    border:none;//clear border
-    outline: none;
-    background-color:transparent;//clear background
-    content:inherit;
-
-    button{
-      content: $comment_icon;
-      &:before,&:after{
-        position:absolute;
-        border:none;//clear border
-        outline: none;
-        top:0;left:0;//stack icons
-        transition:all .3s ease-out;
-        content: $comment_icon;//default icon
-      }
+  width: 35px;
+  height: 35px;
+  .button{
+    background-image: $icon;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 33px;
+    height: 33px;
+    opacity: 1;
+    cursor: pointer;
+    &:hover{
+      transform: scale(1.2);
+      transition: all .4s;
     }
   }
 }

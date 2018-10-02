@@ -1,20 +1,22 @@
+.font_for_like {
+  outline: none;
+}
+
 .toggle-icon {
   width: 30px;
   height: 30px;
-  font-size: 30px;
   position: relative;
+  font-size: 30px;
   color: gray;
   cursor: pointer;
   border: none;
   background-color: transparent;
   content: inherit;
 }
-.toggle-icon button {
-  width: 15px;
-  height: 15px;
-}
 .toggle-icon:before, .toggle-icon:after {
   position: absolute;
+  border: none;
+  outline: none;
   top: 0;
   left: 0;
   transition: all 0.3s ease-out;
@@ -22,10 +24,14 @@
 }
 .toggle-icon:hover:before {
   transform: scale(1.2);
+  border: none;
+  outline: none;
 }
 .toggle-icon:active:before {
   transition: none;
   transform: scale(1);
+  border: none;
+  outline: none;
 }
 .toggle-icon:after {
   opacity: 0;
@@ -34,6 +40,7 @@
   color: #A12C2C;
 }
 .toggle-icon.-checked:before {
+  outline: none;
   content: url(./like-color.png);
 }
 .toggle-icon.-checked:after {

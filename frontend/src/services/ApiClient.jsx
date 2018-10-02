@@ -10,9 +10,11 @@ export default class ApiClient{
 	}
 
 	post(endpoint = "", body = {}){
+		//axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 		console.log(body);
 		const url = `${apiUrl}${endpoint}`;
-		return axios.post(url, body, {headers: {'Content-Type':'application/json;charset=UTF-8'}});
+		//, {headers: {'Content-Type':'application/json;charset=UTF-8'}}
+		return axios.post(url, body, {headers: {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'}});
 	}
 
 	postFetch(endpoint = "", body=""){

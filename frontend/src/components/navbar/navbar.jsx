@@ -32,7 +32,6 @@ export default class Navbar extends Component{
   }
 
   shouldComponentUpdate(nextProps, nextState){
-    console.log(nextProps);
     if(nextProps.smallMenu === true && nextProps.smallMenu !== this.state.menu_small){
       this.setState({
         menu_small: true,

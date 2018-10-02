@@ -1,28 +1,18 @@
 .comment_button_container {
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
 }
-.comment_button_container .comment_button {
-  width: 25px;
-  height: 25px;
-  background-color: transparent;
-  border: none;
-  border: none;
-  outline: none;
-  background-color: transparent;
-  content: inherit;
+.comment_button_container .button {
+  background-image: url(./icon.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 33px;
+  height: 33px;
+  cursor: pointer;
 }
-.comment_button_container .comment_button button {
-  content: url(../../../src/img/icons/comment.png);
-}
-.comment_button_container .comment_button button:before, .comment_button_container .comment_button button:after {
-  position: absolute;
-  border: none;
-  outline: none;
-  top: 0;
-  left: 0;
-  transition: all 0.3s ease-out;
-  content: url(../../../src/img/icons/comment.png);
+.comment_button_container .button:hover {
+  transform: scale(1.2);
+  transition: all 0.4s;
 }
 
 /*# sourceMappingURL=commentButton.css.map */

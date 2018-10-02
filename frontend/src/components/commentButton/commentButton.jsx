@@ -15,13 +15,10 @@ export default class CommentButton extends Component{
   }
 
   commented(event){
-    this.props.updatePostWithComment(true);
+    this.props.update(true);
   }
 
   render(){
-    // var styleButton = {
-    //   backgroundImage: `url(${})`
-    // }
     return(
       <div className="comment_button_container">
         <div className="button" onClick={this.commented} />

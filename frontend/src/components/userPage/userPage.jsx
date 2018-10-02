@@ -31,9 +31,9 @@ export default class UserPage extends Component{
 
       userid: 1,
 
-      postsCount: 2,
-      followingsCount: 2,
-      followersCount: 2,
+      postsCount: 4,
+      followingsCount: 1,
+      followersCount: 0,
 
       photos: [
         {
@@ -88,6 +88,15 @@ export default class UserPage extends Component{
     .catch((err)=>{
       console.log(err);
     })
+
+    if(this.state.userid){
+      this.clientapi.get(`api/photo/${this.state.userid}`).then((photos)=>{
+        console.log(photos);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+    }
   }
 
   render(){
@@ -131,18 +140,6 @@ export default class UserPage extends Component{
                 <UserPhoto key={2} userPhoto={this.state.photos[1]}/>
                 <UserPhoto key={3} userPhoto={this.state.photos[2]}/>
                 <UserPhoto key={4} userPhoto={this.state.photos[3]}/>
-                <UserPhoto key={5} userPhoto={this.state.photos[0]}/>
-                <UserPhoto key={6} userPhoto={this.state.photos[1]}/>
-                <UserPhoto key={7} userPhoto={this.state.photos[2]}/>
-                <UserPhoto key={8} userPhoto={this.state.photos[3]}/>
-                <UserPhoto key={9} userPhoto={this.state.photos[0]}/>
-                <UserPhoto key={10} userPhoto={this.state.photos[1]}/>
-                <UserPhoto key={11} userPhoto={this.state.photos[2]}/>
-                <UserPhoto key={12} userPhoto={this.state.photos[3]}/>
-                <UserPhoto key={13} userPhoto={this.state.photos[0]}/>
-                <UserPhoto key={14} userPhoto={this.state.photos[1]}/>
-                <UserPhoto key={15} userPhoto={this.state.photos[2]}/>
-                <UserPhoto key={16} userPhoto={this.state.photos[3]}/>
             </div>
           </div>
         </div>

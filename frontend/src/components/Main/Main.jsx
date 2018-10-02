@@ -2,7 +2,11 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 
+
+import ApiClient from '../../services/ApiClient';
+
 import Nstugramm from '../Nstugramm/nstugramm';
+import Loading from '../LoadingDat/LoadingDat';
 import userPage from '../userPage/userPage';
 
 export default class Main extends Component{
@@ -10,28 +14,41 @@ export default class Main extends Component{
     super(props);
 
     this.state={
+      currentUser: {},
+      dataLoading: false,
       userPage: false,
       userExit: false,
     };
-    this.callUserPage = this.callUserPage.bind(this);
+    this.loading;
+    this.clientapi = new ApiClient();
   }
 
-  callUserPage(ev){
-    if(ev === 1){
-      this.setState({
-        userPage: true
+  componentDidMount(){
+    this.clientapi.get(`api/user/${1}`)
+    .then(response=>{
+      console.log("response 2");
+      this.loading = true;
+      this.setState((prevState)=>{
+        return{  dataLoading: !(prevState.dataLoading),
+          currentUser: response.data,}
       });
-    }
+    })
+    .catch(err=>{
+      console.log(err);
+    })
   }
 
   render(){
+    if(this.state.dataLoading){
+      this.forceUpdate();
+    };
     return(
       <Router>
         <div className="Nstugramm">
           {this.state.userPage ?
             <Redirect to='/userPage' />
             :
-            <Nstugramm updateWindow={this.callUserPage}/>
+            <Loading dataLoading={this.state.dataLoading} user={this.state.currentUser}/>
           }
           <Switch>
             <Route path='/userPage' component={userPage} />

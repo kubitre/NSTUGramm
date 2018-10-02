@@ -5,20 +5,21 @@ $icon-empty: url(./like.png);
 $icon-color: url(./like-color.png);
 
 $icon-size: 30px;
-
+.font_for_like{
+  outline: none;
+}
 .toggle-icon{
   width:$icon-size;
   height:$icon-size;
   font-size: $icon-size;
-  position: relative;//need for icons stack
+
   color:gray;//default color
   cursor:pointer;
   border:none;//clear border
-  outline: none;
+
   background-color:transparent;//clear background
   content:inherit;
-  &:before,&:after{
-    position:absolute;
+  &:before,&:after{;
     border:none;//clear border
     outline: none;
     top:0;left:0;//stack icons
@@ -45,6 +46,7 @@ $icon-size: 30px;
   &.-checked{
     color:$icon-fill-color;
     &:before{
+      outline: none;
       content:$icon-color;
     }
     &:after{

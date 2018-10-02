@@ -1,15 +1,6 @@
-.sending_comment_form {
+.form {
   display: flex;
-}
-
-.sendButton {
-  background: url(../../img/sent.png);
-  background-repeat: no-repeat;
-  content: none;
-  border: none;
-  width: 40px;
-  height: 40px;
-  margin-left: 10px;
+  flex-direction: row;
 }
 
 .input_field {
@@ -17,10 +8,22 @@
   border: none;
   border-bottom: 1px solid #e6e6e6;
   padding-left: 25px;
+  outline: none;
 }
 
-.input_field:before {
-  border: none;
+.button {
+  background-image: url(./icon.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 45px;
+  height: auto;
+  cursor: pointer;
+  opacity: 0.5;
+}
+.button:hover {
+  transform: scale(1.1);
+  transition: all 0.4s;
+  opacity: 1;
 }
 
 /*# sourceMappingURL=commentField.css.map */

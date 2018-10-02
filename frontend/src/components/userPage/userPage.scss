@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,900&subset=cyrillic');
 
 .userpage_container{
-  margin-top: 100px;
+  margin-top: 20px;
   margin-left: 14%;
   margin-right: 14%;
   .user_info{
     padding-left: 35px;
     padding-right: 35px;
-    padding-top: 35px;
+    padding-top: 10px;
     border-bottom: 1.5px solid rgba(0,0,0,0.5);
     display: flex;
     .user_photo{
@@ -27,7 +27,7 @@
         font-weight: 400;
         padding-left: 30px;
         margin-top: 30px;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
       }
       .block_counts{
         display: flex;
@@ -48,7 +48,7 @@
 }
 .user_photo_container{
   margin: 0;
-  padding: 6vh 1vw;
+  padding: 4vh 1vw;
   width: 100%;
   height: 100vh;
   display: flex;

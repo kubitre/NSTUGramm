@@ -11,22 +11,23 @@ import Footer from '../footer/footer';
 import UploadPhoto from '../UploadPhoto/UploadPhoto';
 
 
+
+import ApiClient from '../../services/ApiClient';
+
+
 export default class Nstugramm extends Component{
   constructor(props){
     super(props);
 
     this.state = {
-      currentUser: {
-        userImage: '',
-        alt: ''
-      },
-      currentUserId: 1,
+      currentUser: this.props.user,
       menu_small: false,
     };
+    console.log(this.props.user);
+
     this.updateWindowWithOpenUserPage = this.updateWindowWithOpenUserPage.bind(this);
     this.redirectToUserPage = this.redirectToUserPage.bind(this);
   }
-
 
 
   componentDidMount(){
@@ -69,19 +70,20 @@ export default class Nstugramm extends Component{
     return(
         <div className="NSTUGramm">
             <div className="navbar">
-              <Navbar updateWindow={this.updateWindowWithOpenUserPage} smallMenu={this.state.menu_small} redirectToUserPage={this.redirectToUserPage}/>
+              <Navbar updateWindow={this.updateWindowWithOpenUserPage} smallMenu={this.state.menu_small} redirectToUserPage={this.redirectToUserPage} />
             </div>
             <div className="group_container">
               <div className="uploadContainer">
                 <UploadPhoto />
               </div>
               <div className="window">
-                <Window />
+                <Window user={this.state.currentUser}/>
               </div>
               <div className="footer">
                 <Footer currentUser={this.state.currentUser}/>
               </div>
             </div>
+
         </div>
     );
   }

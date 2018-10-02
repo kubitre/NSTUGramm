@@ -25,8 +25,8 @@ export default class Login extends Component{
 
   handleSending(event){
     event.preventDefault();
-
-    this.clientApi.post('api/user/login', {username: this.state.valueLogin, password: this.state.valuePassword}).then(response=>{
+    //const params = new URLSearchParams(`username=${this.state.valueLogin}&password=${this.state.valuePassword}`);
+    this.clientApi.get('api/user/login', {auth:{username:this.state.valueLogin,password:this.state.valuePassword}}).then(response=>{
       console.log(response);
     })
     .catch(err=>console.log(err));

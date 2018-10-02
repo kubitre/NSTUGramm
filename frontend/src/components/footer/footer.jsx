@@ -8,7 +8,10 @@ export default class Footer extends Component{
   constructor(props){
     super(props);
     this.state = {
-      currentUser: this.props.currentUser,
+      currentUser: {
+        username: "kubitre",
+        userImage: "https://png.pngtree.com/element_origin_min_pic/16/10/28/ac3ce995048c3a29ae1428f33ee132b2.jpg"
+      },
       CompanyName: "NSTUGramm",
       CopyRight: "2018. Powered by ",
       authorName: "kubitre",
@@ -24,6 +27,7 @@ export default class Footer extends Component{
 
   render(){
     return(
+
       <div className="panel_container__footer">
         <div className="userInfo" onClick={this.handleUserPage}>
           <span className="userImage">
