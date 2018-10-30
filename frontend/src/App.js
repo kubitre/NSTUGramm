@@ -14,7 +14,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      isAuth: true,
+      isAuth: false,
       pathTo: '/gramm'
     }
   }

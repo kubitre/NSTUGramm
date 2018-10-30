@@ -7,7 +7,10 @@ import Like from '../../like/like';
 export default class UserPhoto extends Component{
   constructor(props){
     super(props);
+
+    console.log("UserPhoto");
     console.log(this.props.userPhoto);
+
     this.state = {
       open: false,
       userPhoto: this.props.userPhoto
@@ -17,6 +20,7 @@ export default class UserPhoto extends Component{
     this._mouseEnter = this._mouseEnter.bind(this);
     this._mouseLeave = this._mouseLeave.bind(this);
 
+    console.log(this.state.userPhoto);
   }
     // Event handlers to modify state values
   _mouseEnter(e) {
@@ -56,7 +60,7 @@ export default class UserPhoto extends Component{
       tileStyle = {
         width: '62vw',
         height: '62vw',
-        backgroundImage: `url(${this.props.userPhoto.photoUrl})`,
+        backgroundImage: `url(${this.state.userPhoto.path})`,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
@@ -72,7 +76,7 @@ export default class UserPhoto extends Component{
     } else {
       tileStyle = {
         width: '18vw',
-        backgroundImage: `url(${this.props.userPhoto.photoUrl})`,
+        backgroundImage: `url(${this.state.userPhoto.path})`,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         backgroundSize: 'cover',

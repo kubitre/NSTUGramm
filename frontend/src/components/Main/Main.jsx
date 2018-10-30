@@ -15,12 +15,14 @@ export default class Main extends Component{
 
     this.state={
       currentUser: {},
-      dataLoading: false,
+      dataLoading: true,
       userPage: false,
       userExit: false,
     };
     this.loading;
     this.clientapi = new ApiClient();
+
+    this.RedirectToUserPage = this.RedirectToUserPage.bind(this);
   }
 
   componentDidMount(){
@@ -38,17 +40,21 @@ export default class Main extends Component{
     })
   }
 
+  RedirectToUserPage(flag){
+    this.setState({
+      userPage: flag
+    });
+  }
+
   render(){
-    if(this.state.dataLoading){
-      this.forceUpdate();
-    };
+
     return(
       <Router>
         <div className="Nstugramm">
           {this.state.userPage ?
             <Redirect to='/userPage' />
             :
-            <Loading dataLoading={this.state.dataLoading} user={this.state.currentUser}/>
+            <Loading dataLoading={this.state.dataLoading} user={this.state.currentUser} redirectToUserPage={this.RedirectToUserPage}/>
           }
           <Switch>
             <Route path='/userPage' component={userPage} />

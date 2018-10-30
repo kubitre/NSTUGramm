@@ -31,47 +31,50 @@ export default class UserPage extends Component{
 
       userid: 1,
 
-      postsCount: 4,
+
       followingsCount: 1,
       followersCount: 0,
 
       photos: [
         {
           id: 1,
-          photoUrl: "https://images.pexels.com/photos/1049887/pexels-photo-1049887.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-          filterName: "test",
-          countLikes: 1,
-          countComments: 1,
+          path: "https://images.mentalfloss.com/sites/default/files/styles/mf_image_16x9/public/549585-istock-909106260.jpg?itok=ds7LqH1N&resize=1100x1100"
         },
         {
           id: 2,
-          photoUrl: "https://images.pexels.com/photos/1216491/pexels-photo-1216491.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-          filterName: "test",
-          countLikes: 15,
-          countComments: 3,
+          path: "https://d17fnq9dkz9hgj.cloudfront.net/uploads/2012/11/152964589-welcome-home-new-cat-632x475.jpg"
         },
         {
           id: 3,
-          photoUrl: "http://diarrea.eu/wp-content/uploads/2018/02/gatto-interno2-e1481812668842-678x381.jpg",
-          filterName: "test",
-          countLikes: 0,
-          countComments: 4
+          path: "https://cdn.cnn.com/cnnnext/dam/assets/150324154010-04-internet-cats-restricted-super-169.jpg"
         },
         {
           id: 4,
-          photoUrl: "https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg?cs=srgb&dl=adorable-animal-blur-617278.jpg&fm=jpg",
-          filterName: "test",
-          countLikes: 0,
-          countComments: 5
+          path: "https://cdn-images-1.medium.com/max/1600/1*mONNI1lG9VuiqovpnYqicA.jpeg"
         }
-      ],
+        ,
+        {
+          id: 5,
+          path: "https://www.bluecross.org.uk/sites/default/files/assets/images/124044lpr.jpg"
+        }
+      ]
+      ,
+      postsCount: 5,
     }
-
+    
     this.clientapi = new ApiClient();
   }
 
   fetchPhotosUser(){
-
+    this.clientapi.get(`api/photo/${this.state.userid}`).then((photos)=>
+    {
+      this.setState({
+        photos: photos.data
+      });
+    })
+    .catch(err=>{
+      console.log("err: " + err);
+    })
   }
 
   componentDidMount(){
@@ -91,7 +94,9 @@ export default class UserPage extends Component{
 
     if(this.state.userid){
       this.clientapi.get(`api/photo/${this.state.userid}`).then((photos)=>{
-        console.log(photos);
+        this.setState({
+          photos: photos.data
+        });
       })
       .catch(err => {
         console.log(err);
@@ -110,6 +115,8 @@ export default class UserPage extends Component{
       width: '200px',
       height: '200px'
     }
+    console.log("userPage:");
+    console.log(this.state.photos);
     return(
         <div className="userpage_container">
           <div className="user_block__container">
@@ -136,10 +143,11 @@ export default class UserPage extends Component{
               </div>
             </div>
             <div className="user_photo_container">
-                <UserPhoto key={1} userPhoto={this.state.photos[0]}/>
-                <UserPhoto key={2} userPhoto={this.state.photos[1]}/>
-                <UserPhoto key={3} userPhoto={this.state.photos[2]}/>
-                <UserPhoto key={4} userPhoto={this.state.photos[3]}/>
+                  <UserPhoto key={0} userPhoto={this.state.photos[0]}/>
+                  <UserPhoto key={1} userPhoto={this.state.photos[1]}/>
+                  <UserPhoto key={2} userPhoto={this.state.photos[2]}/>
+                  <UserPhoto key={3} userPhoto={this.state.photos[3]}/>
+                  <UserPhoto key={4} userPhoto={this.state.photos[4]}/>
             </div>
           </div>
         </div>

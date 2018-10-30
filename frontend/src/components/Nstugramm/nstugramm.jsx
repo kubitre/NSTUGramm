@@ -61,6 +61,7 @@ export default class Nstugramm extends Component{
   }
 
   redirectToUserPage(ev){
+    console.log("Open user page !");
     console.log(ev);
     this.props.updateWindow(ev);
   }

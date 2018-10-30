@@ -29,7 +29,7 @@ export default class Loading extends Component{
     return(
       <div>
         {this.state.dataLoading ?
-            <Nstugramm updateWindow={this.callUserPage} user={this.state.currentUser} dataLoading={this.state.dataLoading}/>
+            <Nstugramm updateWindow={this.callUserPage} user={this.state.currentUser} dataLoading={this.state.dataLoading} updateWindow={this.props.redirectToUserPage}/>
           :
             <ClipLoader
             sizeUnit={"px"}
