@@ -61,6 +61,7 @@ namespace nstugram1._1.Controllers
         [HttpPost]
         public IActionResult Create(Like item)
         {
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
             var photoFromDb = this._context.Photos.Find(item.idPhoto);
             if(photoFromDb != null){
                 var likeFromDb = this._context.Likes.Find(item.idOwner, item.idPhoto);

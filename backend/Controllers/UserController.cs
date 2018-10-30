@@ -26,13 +26,14 @@ namespace nstugram1._1.Controllers
         // }
 
         [HttpGet("{id}", Name = "GetUserById")]
-        public ActionResult<User> GetById(long id)
+        public ActionResult<User> GetUserById(long id)
         {
             var item = _context.Users.Find(id);
             if (item == null)
             {
                 return NotFound();
             }
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
             return item;
         }
 
@@ -65,18 +66,68 @@ namespace nstugram1._1.Controllers
              //TODO: write method for filtering info in db
         }
 
-        [HttpPost]
-        public IActionResult Create(User item)
-        {
-            // var userFromDb = this._context.Users.Find(item.email);
-            // if(userFromDb != null){
-            //     return BadRequest("error: \"user-already-exist\"");
-            // }
-            _context.Users.Add(item);
-            _context.SaveChanges();
+        // [HttpPost(Name = "registration")]
+        // public IActionResult Create(User item)
+        // {
+        //     // var userFromDb = this._context.Users.Find(item.email);
+        //     // if(userFromDb != null){
+        //     //     return BadRequest("error: \"user-already-exist\"");
+        //     // }
+        //     _context.Users.Add(item);
+        //     _context.SaveChanges();
+            
+        //     return CreatedAtRoute("GetUserById", new { id = item.id }, item);
+        // }
 
-            return CreatedAtRoute("GetUserById", new { id = item.id }, item);
+        [HttpGet]
+        [Route("login")]
+        public IActionResult Login([FromQuery]string auth){
+            var patternUsername = new Regex("\"username\":[0-9a-zA-Z]{5, 15}");
+            var patternPassword = new Regex("\"password\":[0-9a-zA-Z]{5, 15}");
+
+            string username="";
+            string password="";
+
+            if(patternPassword.Matches(auth).Count == 1 && patternUsername.Matches(auth).Count == 1){
+                username = patternUsername.Matches(auth)[0].ToString();
+                password = patternPassword.Matches(auth)[0].ToString();
+            }
+
+            var userFromDb = this._context.Users
+                                            .FirstOrDefault(usr => usr.username == username && usr.password == password);
+
+            if(userFromDb != null){
+                return NotFound();    
+            }
+            return Ok();
         }
+
+        // [HttpPost(Name = "login")]
+        // public IActionResult Login(User user){
+        //     // if(!ModelState.IsValid){    
+        //     //     return BadRequest();
+        //     // }
+        //     // return NotFound("TURURUR");
+        //     // var patternUsername = new Regex("\"username\":[0-9a-zA-Z]{5, 15}");
+        //     // var patternPassword = new Regex("\"password\":[0-9a-zA-Z]{5, 15}");
+
+        //     // string username="";
+        //     // string password="";
+
+        //     // if(patternPassword.Matches(auth).Count == 1 && patternUsername.Matches(auth).Count == 1){
+        //     //     username = patternUsername.Matches(auth)[0].ToString();
+        //     //     password = patternPassword.Matches(auth)[0].ToString();
+        //     // }
+
+        //     //var userFindInDb = this._context.Users
+        //                                     //.Where(usr => usr.username == username && usr.password == password);
+    
+        //     // if(userFindInDb!= null){
+        //     //     return NotFound();
+        //     // }
+        //     return NotFound("{\"error\": {\"code\": \"usr is not find in db\"}}");
+
+        // }
 
         [HttpPut("{id}")]
         public IActionResult Update(long id, User item)

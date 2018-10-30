@@ -22,14 +22,16 @@ namespace nstugram1._1.Controllers
         }
 
         [HttpGet("{id}", Name = "GetPhotoById")]
-        public ActionResult<Photo> GetById(long id)
+        public ActionResult<List<Photo>> GetById(long id)
         {
-            var item = _context.Photos.Find(id);
-            if (item == null)
+            var items = this._context.Photos.Where(x => x.idOwner == id).ToList();
+            if (items == null)
             {
                 return NotFound();
             }
-            return item;
+
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
+            return items;
         }
 
         [HttpGet]
@@ -66,7 +68,7 @@ namespace nstugram1._1.Controllers
                                      timeCreated = photo.timeCreated,
                                  };
                 
-
+                Response.Headers.Add("Access-Control-Allow-Origin", "*");
                 return postFromDb.ToList();                        
 
             }
@@ -76,23 +78,23 @@ namespace nstugram1._1.Controllers
             return NotFound("error: {errorcode: \"404\"}");
              //TODO: write method for filtering info in db
         }
-        [HttpPost]
-        [Route("upload")]
-        public async Task<IActionResult> UploadPhoto(PhotoViewModel model){
-            var file = model.File;
+        // [HttpPost]
+        // [Route("upload")]
+        // public async Task<IActionResult> UploadPhoto(PhotoViewModel model){
+        //     var file = model.File;
 
-            if(file.Length > 0){
-                string path = Path.Combine(Directory.GetCurrentDirectory(), "uploads");
-                using(var filestream = new FileStream(Path.Combine(path, file.FileName), FileMode.Create)){
-                    await file.CopyToAsync(filestream);
-                }
+        //     if(file.Length > 0){
+        //         string path = Path.Combine(Directory.GetCurrentDirectory(), "uploads");
+        //         using(var filestream = new FileStream(Path.Combine(path, file.FileName), FileMode.Create)){
+        //             await file.CopyToAsync(filestream);
+        //         }
 
-                model.source = $"/uploads{file.FileName}";
-                model.Extension = Path.GetExtension(file.FileName).Substring(1);
-            }
+        //         model.source = $"/uploads{file.FileName}";
+        //         model.Extension = Path.GetExtension(file.FileName).Substring(1);
+        //     }
 
-            return BadRequest();
-        }
+        //     return BadRequest();
+        // }
 
         [HttpPost]
         public IActionResult Create(Photo item)
